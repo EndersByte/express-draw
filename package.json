@@ -1,0 +1,23 @@
+{
+  "name": "express-draw",
+  "version": "1.0.0",
+  "description": "drawing in one computer. see in other",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "express-draw"
+  },
+  "keywords": [
+    "express",
+    "server"
+  ],
+  "author": "FilipeEnderA",
+  "license": "ISC"
+}
