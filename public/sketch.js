@@ -33,7 +33,7 @@ function draw() {
     previous.y = current.y
   }
   // Draw all paths
-  for (let i = 0 i < paths.length i++) {
+  for (let i = 0; i < paths.length; i++) {
     paths[i].update()
     paths[i].display()
   }
@@ -66,14 +66,14 @@ class Path {
   }
   // Display plath
   update() {
-    for (let i = 0 i < this.particles.length i++) {
+    for (let i = 0; i < this.particles.length; i++) {
       this.particles[i].update()
     }
   }
   // Display plath
   display() {
     // Loop through backwards
-    for (let i = this.particles.length - 1 i >= 0 i--) {
+    for (let i = this.particles.length - 1; i >= 0; i--) {
       // If we shold remove it
       if (this.particles[i].lifespan <= 0) {
         this.particles.splice(i, 1)
