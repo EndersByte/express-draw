@@ -12,11 +12,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "express-draw"
+    "url": "https://github.com/EndersByte/express-draw.git"
   },
   "keywords": [
     "express",
-    "server"
+    "server",
+    "p5"
   ],
   "author": "FilipeEnderA",
   "license": "ISC"
