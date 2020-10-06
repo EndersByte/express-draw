@@ -1,16 +1,32 @@
-let express = require('express')//inserting the modules
-let socket = require('socket.io')
+let express = require('express')
+let app = express()
+// importa express e transforma app em função
 
-let app = express()//calling the class
 
-let server = app.listen(3000)// starting the server
-app.use(express.static('public'))//sending the dat to the client
 
-let io = socket(server)//function that handles server/sockets events
+let server = app.listen( 5500, () => {
+    let port = server.address().port;
+    console.log(`Example app listening at http://localhost:${port}`);
+  })
+  //declara o server usando o app
 
-io.socket.on('connection',newConnection)// execute newConnection when that occuors
+  app.use(express.static('public'));
 
-function newConnection(){
-console.log('server running and data sended')
-}
+  
+/*
+app.use('/', (req, res) => {
+    res.sendFile(__dirname +'\\index.html')
+    
+    console.log(__dirname + '\\index.html')
+    console.log('houve um get')
+
+})*///sending the data to the client
+
+ 
+let io = require('socket.io')(server)
+
+io.on('connection', (socket) => { 
+
+    console.log('new connecton has been made'+ io.id)})
+
 
