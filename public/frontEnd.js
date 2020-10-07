@@ -1,4 +1,4 @@
-let soquete = io('192.168.1.6:5500')
+let soquete = io('179.34.185.221:5500')
 // Start a socket connection to the server
 
 function setup () {
