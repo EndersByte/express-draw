@@ -2,8 +2,6 @@ let express = require('express')
 let app = express()
 // importa express e transforma app em função
 
-
-
 let server = app.listen( 5500, () => {
     let port = server.address().port;
     console.log(`Example app listening at http://localhost:${port}`);
@@ -11,22 +9,12 @@ let server = app.listen( 5500, () => {
   //declara o server usando o app
 
   app.use(express.static('public'));
+//sending the data to the client
 
-  
-/*
-app.use('/', (req, res) => {
-    res.sendFile(__dirname +'\\index.html')
-    
-    console.log(__dirname + '\\index.html')
-    console.log('houve um get')
-
-})*///sending the data to the client
-
- 
-let io = require('socket.io')(server)
+let socket = require('socket.io')
+let io = socket(server)
 
 io.on('connection', (socket) => { 
-
-    console.log('new connecton has been made'+ io.id)})
+  console.log('Um socket conectou'+ socket.id)})
 
 
