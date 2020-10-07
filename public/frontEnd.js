@@ -9,7 +9,7 @@ function setup () {
   // anonymous callback function 
   soquete.on('mouse', (data) => {// this is the new outside drawing
     // When we receive data
-      console.log("Got: " + data.x + " " + data.y)
+      //console.log("Got: " + data.x + " " + data.y)
       // Draw a blue circle
       fill(0,0,255)
       noStroke()
