@@ -2,7 +2,7 @@ let express = require('express')
 let app = express()
 // importa express e transforma app em função
 
-let server = app.listen( 5500, () => {
+let server = app.listen( 5500,'192.168.1.6', () => {
     let port = server.address().port;
     console.log(`Example app listening at http://localhost:${port}`);
   })
