@@ -11,10 +11,15 @@ let server = app.listen( 5500, () => {
   app.use(express.static('public'));
 //sending the data to the client
 
-let socket = require('socket.io')
-let io = socket(server)
+let io = require('socket.io')(server)
 
-io.on('connection', (socket) => { 
-  console.log('Um socket conectou'+ socket.id)})
+io.sockets.on('connection', (socket) => { 
+  console.log('Um socket conectou, ID:'+ socket.id)
 
+  socket.on('mouse', (data)=>{
+    socket.broadcast.emit('mouse',data)
+    
+
+  })
+})
 

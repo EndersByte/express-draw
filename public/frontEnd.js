@@ -1,33 +1,30 @@
-
 let soquete = io('http://localhost:5500')
+// Start a socket connection to the server
 
 function setup () {
   createCanvas(720, 480)
   background(0)
-  // Start a socket connection to the server
   // Some day we would run this server somewhere else
   // We make a named event called 'mouse' and write an
-  // anonymous callback function
-  soquete.on('mouse',
+  // anonymous callback function 
+  soquete.on('mouse', (data) => {// this is the new outside drawing
     // When we receive data
-    function(data) {
       console.log("Got: " + data.x + " " + data.y)
       // Draw a blue circle
       fill(0,0,255)
       noStroke()
-      ellipse(data.x, data.y, 20, 20)
+      circle(data.x, data.y, 20)
     }
   )
 }
 
-function draw() {
-}
+function draw() {}
 
 function mouseDragged() {
   // Draw some white circles
   fill(255)
   noStroke()
-  ellipse(mouseX,mouseY,20,20)
+  circle(mouseX,mouseY,20)
   // Send the mouse coordinates
   sendmouse(mouseX,mouseY)
 }
@@ -37,12 +34,11 @@ function sendmouse(xpos, ypos) {
   // We are sending!
   console.log("sendmouse: " + xpos + " " + ypos)
   
-  // Make a little object with  and y
-  var data = {
+  // Make a little object with x and y
+  let data = {
     x: xpos,
     y: ypos
   }
-
   // Send that object to the socket
   soquete.emit('mouse',data)
 }
