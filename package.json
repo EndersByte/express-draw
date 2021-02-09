@@ -1,5 +1,5 @@
 {
-	"name": "remoteDraw",
+	"name": "remote-draw",
 	"version": "1.0.0",
 	"description": "drawing in one computer. see in other",
 	"main": "server.js",
