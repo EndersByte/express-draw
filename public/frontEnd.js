@@ -1,21 +1,23 @@
-let soquete = io('179.34.185.221:5500')
+const SERVER_IP = `:${PORT}`
+
+let soquete = io(SERVER_IP) // ip publico da minha rede
 // Start a socket connection to the server
 
-function setup () {
+function setup() {
   createCanvas(720, 480)
   background(0)
   // Some day we would run this server somewhere else
   // We make a named event called 'mouse' and write an
-  // anonymous callback function 
-  soquete.on('mouse', (data) => {// this is the new outside drawing
+  // anonymous callback function
+  soquete.on('mouse', (data) => {
+    // this is the new outside drawing
     // When we receive data
-      //console.log("Got: " + data.x + " " + data.y)
-      // Draw a blue circle
-      fill(0,0,255)
-      noStroke()
-      circle(data.x, data.y, 20)
-    }
-  )
+    //console.log("Got: " + data.x + " " + data.y)
+    // Draw a blue circle
+    fill(0, 0, 255)
+    noStroke()
+    circle(data.x, data.y, 20)
+  })
 }
 
 function draw() {}
@@ -24,27 +26,24 @@ function mouseDragged() {
   // Draw some white circles
   fill(255)
   noStroke()
-  circle(mouseX,mouseY,20)
+  circle(mouseX, mouseY, 20)
   // Send the mouse coordinates
-  sendmouse(mouseX,mouseY)
+  sendmouse(mouseX, mouseY)
 }
 
 // Function for sending to the socket
 function sendmouse(xpos, ypos) {
   // We are sending!
-  console.log("sendmouse: " + xpos + " " + ypos)
-  
+  console.log('sendmouse: ' + xpos + ' ' + ypos)
+
   // Make a little object with x and y
   let data = {
     x: xpos,
     y: ypos
   }
   // Send that object to the socket
-  soquete.emit('mouse',data)
+  soquete.emit('mouse', data)
 }
-
-
-
 
 /* CODIGO DE PARTICULAS NAO DESENHO TENTAR EMPLEMENTAR
 // All the paths
